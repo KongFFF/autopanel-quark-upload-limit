@@ -2,11 +2,15 @@
 
 AutoPanel 未识别夸克网盘的 `exp_svip` 会员类型时，上传可能在本地大小检查处失败。本文记录已在原环境验证成功的修复流程，适用于下方 SHA-256 对应的构建。
 
+当前提供的补丁将未知会员类型的本地默认上限从 **4 GiB 提高到 16 GiB**，不是 200 GB 补丁。约 10 GiB 文件已在原实例越过检查开始上传；会员权益与最终上传许可仍由夸克服务端决定。
+
+想了解这次排查如何完成，可以阅读[逆向实录：从提取文件到还原上传逻辑](docs/reverse-engineering.md)。文中包含 Ghidra 的具体操作、原始截图、会员信息调用链、等效伪代码和两处补丁字节。
+
 ## 1. 准备文件并核对构建
 
 在 **运行 AutoPanel 的 Linux x86_64 环境**中，通过独立 SSH 会话以 root 身份执行。先等待正在进行的任务完成，安装会重启 Supervisor 管理的 `autopanel` 服务。
 
-准备 [autopanel-fix.sh](autopanel-fix.sh) 和已生成的 `autopanel.unpacked` 修复文件。脚本会校验、安装和回滚。仓库目前尚未提供修复文件或其本地生成步骤，已有对应文件的用户可以继续。
+下载 [autopanel-fix.sh](autopanel-fix.sh) 和 [autopanel.unpacked 修复文件](https://github.com/KongFFF/autopanel-quark-upload-limit/raw/refs/heads/main/autopanel.unpacked)，并上传到运行 AutoPanel 的实例。脚本会校验、安装和回滚；修复文件的生成过程见[逆向实录](docs/reverse-engineering.md)。
 
 在脚本所在目录执行以下命令，将示例路径替换成修复文件的实际路径。
 
@@ -49,7 +53,6 @@ sha256sum /usr/bin/autopanel
 
 ## 逆向记录与可修改参数
 
-- [Ghidra 定位路线](docs/ghidra.md)记录如何从 `exp_svip` 的字符串引用回查上传大小判断。
-- [可修改参数索引](docs/parameters.md)记录参数对应的构建、目标文件、函数与验证状态。
-
-目前已确认目标文件及构建哈希。实际修改的函数、阈值与单位、补丁生成步骤，以及其他参数的位置，待补入原始定位记录。
+- [逆向实录](docs/reverse-engineering.md)：提取和解压文件、安装工具、搜索与交叉引用、会员解析与上传检查、制作补丁。
+- [可修改参数索引](docs/parameters.md)：会员上限、最小文件大小、缓存时间、HTTP 超时等位置与验证状态。
+- [证据与构建记录](docs/evidence.md)：原会话出处、三种文件状态、函数索引、结构体与补丁差异附件。

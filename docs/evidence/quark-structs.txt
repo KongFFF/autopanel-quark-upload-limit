@@ -1,0 +1,16 @@
+========== UserMemberResp ==========
+type api.UserMemberResp struct {
+    Resp       api.Resp
+    Timestamp  int64 `json:"timestamp"`
+    Data       struct { MemberType string "json:\"member_type\""; ImageBackup int "json:\"image_backup\""; DeepRecycleStat struct { RecycleNormalServeDays int "json:\"recycle_normal_serve_days\""; RecycleSvipServeDays int "json:\"recycle_svip_serve_days\""; RecycleZvipServeDays int "json:\"recycle_zvip_serve_days\""; RecycleVipServeDays int "json:\"recycle_vip_serve_days\""; RecyclePayServeDays int "json:\"recycle_pay_serve_days\""; DeepRecycleServeDays int "json:\"deep_recycle_serve_days\"" } "json:\"deep_recycle_stat\""; CreatedAt int64 "json:\"created_at\""; MemberInfo struct { VideoSaveToUses int "json:\"video_save_to_uses\""; VideoSaveToRemains int "json:\"video_save_to_remains\""; FileSaveToRemains int "json:\"file_save_to_remains\""; OfflineDownloadRemains int "json:\"offline_download_remains\""; MemberTypeMap map[string]struct { VideoSaveToTotal int "json:\"video_save_to_total\"" } "json:\"member_type_map\"" } "json:\"member_info\""; AccStatus int "json:\"acc_status\""; SecretUseCapacity int64 "json:\"secret_use_capacity\""; UseCapacity int64 "json:\"use_capacity\""; VideoBackup int "json:\"video_backup\""; ExtendCapacityComposition map[string]interface {} "json:\"extend_capacity_composition\""; IsNewUser bool "json:\"is_new_user\""; MemberStatus map[string]string "json:\"member_status\""; Identity []interface {} "json:\"identity\""; SecretTotalCapacity int64 "json:\"secret_total_capacity\""; SubscribePayChannelMap map[string]interface {} "json:\"subscribe_pay_channel_map\""; SubscribeStatusMap map[string]interface {} "json:\"subscribe_status_map\""; TotalCapacity int64 "json:\"total_capacity\"" } `json:"data"`
+    Metadata   struct { RangeSize int64 "json:\"range_size\""; ServerCurTime int64 "json:\"server_cur_time\"" } `json:"metadata"`
+}
+
+========== Quota ==========
+type api.Quota struct {
+    SecretUseCapacity uint64 `json:"secret_use_capacity"`
+    SecretTotalCapacity uint64 `json:"secret_total_capacity"`
+    UseCapacity uint64 `json:"use_capacity"`
+    TotalCapacity uint64 `json:"total_capacity"`
+    MemberType string `json:"member_type"`
+}

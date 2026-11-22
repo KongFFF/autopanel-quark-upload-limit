@@ -1,0 +1,33 @@
+{
+  "original_unpacked": {
+    "size": 56922528,
+    "sha256": "de4bdbd94c1c4f15d4fc29aa0a3b4506377b2d47e2e57a6bc684dc799fd15fc2"
+  },
+  "patched": {
+    "size": 56922528,
+    "sha256": "0c5add05dba0575411b3c8f43812e194c4c7ef3ea1003a8b36a6a196ad05547d"
+  },
+  "total_changed_bytes": 2,
+  "changes": [
+    {
+      "purpose": "default limit used in file-size comparison",
+      "instruction_virtual_address": "0x00F2CD9B",
+      "instruction_file_offset": "0x00B2CD9B",
+      "changed_byte_file_offset": "0x00B2CDA1",
+      "old_instruction_bytes": "48 b8 00 00 00 00 01 00 00 00",
+      "new_instruction_bytes": "48 b8 00 00 00 00 04 00 00 00",
+      "old_limit_bytes": 4294967296,
+      "new_limit_bytes": 17179869184
+    },
+    {
+      "purpose": "default limit used in error message",
+      "instruction_virtual_address": "0x00F2CE77",
+      "instruction_file_offset": "0x00B2CE77",
+      "changed_byte_file_offset": "0x00B2CE7D",
+      "old_instruction_bytes": "48 b8 00 00 00 00 01 00 00 00",
+      "new_instruction_bytes": "48 b8 00 00 00 00 04 00 00 00",
+      "old_limit_bytes": 4294967296,
+      "new_limit_bytes": 17179869184
+    }
+  ]
+}

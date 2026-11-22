@@ -14,7 +14,7 @@
 
 ## 安装
 
-先准备上表所列的修复文件。本仓库目前没有修复二进制或其本地生成记录。请使用独立 SSH 会话，等正在进行的任务完成后，再到运行 AutoPanel 的环境中以 root 身份执行。将示例路径替换为实际路径。
+先准备上表所列的[修复文件](https://github.com/KongFFF/autopanel-quark-upload-limit/raw/refs/heads/main/autopanel.unpacked)和[安装脚本](../autopanel-fix.sh)。当前补丁将未知会员类型的默认上限从 4 GiB 调到 16 GiB，并非 200 GB 补丁；具体修改与生成过程见[逆向实录](reverse-engineering.md)。请使用独立 SSH 会话，等正在进行的任务完成后，再到运行 AutoPanel 的环境中以 root 身份执行。将示例路径替换为实际路径。
 
 ```bash
 sha256sum /usr/bin/autopanel /path/to/autopanel.unpacked
@@ -25,7 +25,7 @@ bash autopanel-fix.sh install /path/to/autopanel.unpacked
 
 ## 验证
 
-看到 `Executable checksum verified.` 表示脚本已确认 Supervisor 任务运行，并从 `/proc/<PID>/exe` 验证了正在运行的文件。随后打开 Web UI，用相同账号和上传路径复测原先失败的文件，确认上传完成及远端文件大小。记录测试文件的字节数和结果，方便在同一构建上复现。用户在原环境报告修复成功，具体测试样本和日志尚未收录。
+看到 `Executable checksum verified.` 表示脚本已确认 Supervisor 任务运行，并从 `/proc/<PID>/exe` 验证了正在运行的文件。随后打开 Web UI，用相同账号和上传路径复测原先失败的文件，确认上传完成及远端文件大小。记录测试文件的字节数和结果，方便在同一构建上复现。原会话记录了约 10 GiB 的 `model_world_size_1_rank_0.pt` 开始正常上传，作者后续确认原实例问题已解决；现有材料未收录完整完成日志或更大文件的边界测试。
 
 ## 回滚
 

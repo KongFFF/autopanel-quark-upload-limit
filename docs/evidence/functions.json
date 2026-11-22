@@ -1,0 +1,105 @@
+{
+  "input_sha256": "de4bdbd94c1c4f15d4fc29aa0a3b4506377b2d47e2e57a6bc684dc799fd15fc2",
+  "architecture": "amd64",
+  "os": "linux",
+  "GoReSym_version_field": "1.24",
+  "note": "Function addresses are ELF virtual addresses. End addresses are exclusive. Go version was parsed with -v 1.24 override.",
+  "functions": [
+    {
+      "Start": 15856192,
+      "End": 15856512,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.Quota.MaxUploadSize",
+      "StartHex": "0x00F1F240",
+      "EndHex": "0x00F1F380"
+    },
+    {
+      "Start": 15900352,
+      "End": 15900640,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.(*Quota).MaxUploadSize",
+      "StartHex": "0x00F29EC0",
+      "EndHex": "0x00F29FE0"
+    },
+    {
+      "Start": 15912096,
+      "End": 15912992,
+      "PackageName": "apanel/pkg/quark",
+      "FullName": "apanel/pkg/quark.UploaderChecker",
+      "StartHex": "0x00F2CCA0",
+      "EndHex": "0x00F2D020"
+    },
+    {
+      "Start": 15912992,
+      "End": 15915264,
+      "PackageName": "apanel/pkg/quark",
+      "FullName": "apanel/pkg/quark.Uploader",
+      "StartHex": "0x00F2D020",
+      "EndHex": "0x00F2D900"
+    },
+    {
+      "Start": 15970560,
+      "End": 15972288,
+      "PackageName": "apanel/pkg/netdisk/service",
+      "FullName": "apanel/pkg/netdisk/service.(*quarkSvc).Upload",
+      "StartHex": "0x00F3B100",
+      "EndHex": "0x00F3B7C0"
+    },
+    {
+      "Start": 15973184,
+      "End": 15973664,
+      "PackageName": "apanel/pkg/netdisk/service",
+      "FullName": "apanel/pkg/netdisk/service.(*quarkSvc).RefreshInfo",
+      "StartHex": "0x00F3BB40",
+      "EndHex": "0x00F3BD20"
+    },
+    {
+      "Start": 15973664,
+      "End": 15973824,
+      "PackageName": "apanel/pkg/netdisk/service",
+      "FullName": "apanel/pkg/netdisk/service.(*quarkSvc).UserInfo",
+      "StartHex": "0x00F3BD20",
+      "EndHex": "0x00F3BDC0"
+    },
+    {
+      "Start": 15898176,
+      "End": 15899040,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.(*QuarkApi).Quota",
+      "StartHex": "0x00F29640",
+      "EndHex": "0x00F299A0"
+    },
+    {
+      "Start": 15897280,
+      "End": 15898176,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.(*QuarkApi).UserInfo",
+      "StartHex": "0x00F292C0",
+      "EndHex": "0x00F29640"
+    },
+    {
+      "Start": 15880480,
+      "End": 15882912,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.(*QuarkApi).Upload",
+      "StartHex": "0x00F25120",
+      "EndHex": "0x00F25AA0"
+    },
+    {
+      "Start": 15885184,
+      "End": 15886560,
+      "PackageName": "apanel/pkg/quark/api",
+      "FullName": "apanel/pkg/quark/api.(*QuarkApi).upPre",
+      "StartHex": "0x00F26380",
+      "EndHex": "0x00F268E0"
+    },
+    {
+      "Start": 8076448,
+      "End": 8077248,
+      "PackageName": "github.com/levigross/grequests",
+      "FullName": "github.com/levigross/grequests.BuildHTTPClient",
+      "StartHex": "0x007B3CA0",
+      "EndHex": "0x007B3FC0"
+    }
+  ]
+}
